@@ -1,0 +1,130 @@
+    <!-- homepage/templates/homepage/modal.html -->
+
+    <style>
+        /* Estilo do Fundo Escuro do Modal (Overlay) */
+        .modal-overlay {
+            display: none; /* Começa oculto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Caixa Central do Modal */
+        .modal-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #e0e0e0;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            width: 60vw;
+            max-width: 90%;
+            height: 60vh;
+        }
+
+        .modal-box h1 {
+            color: #0d2047;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        .modal-box p {
+            color: #0d2047;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            position: relative;
+        }
+
+        .modal-box button {
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+
+        #sim {
+            background-color: #28a745;
+            color: white;
+        }
+
+        #sim:hover {
+            background-color: #218838;
+        }
+
+        #nao {
+            background-color: #dc3545;
+            color: white;
+            position: relative;
+        }
+    </style>
+
+    <!-- Estrutura do Modal -->
+    <div id="meuModal" class="modal-overlay">
+        <div class="modal-box" id="modalBoxContent">
+            <p>Confirme se você é o Sentinelas!</p>
+            <h1>Sentinelas é pai dos Radioativos? ☢️</h1>
+            
+            <div class="buttons">
+                <button id="sim" onclick="aceitou()">Sim</button>
+                <button id="nao" onmouseover="fugir()" onclick="fugir()">Não</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Quando clica em "Entrar", abre o modal em vez de enviar direto
+        function interceptarLogin(event) {
+            document.getElementById('meuModal').style.display = 'flex';
+        }
+
+        // 2. Sobrescrevemos a função 'aceitou' para que, ao acertar, envie o formulário de login de verdade
+        function aceitou() {
+            const caixa = document.getElementById('modalBoxContent');
+            caixa.innerHTML = `
+                <h1 style="color: #0d2047; font-size: 30px; text-align: center;">
+                    Resposta correta! 🦉<br>Redirecionando...
+                </h1>
+            `;
+
+            // Pequeno atraso de 1 segundo para a pessoa ver a mensagem e enviar o form do Django
+            setTimeout(() => {
+                document.getElementById('form-login').submit();
+            }, 1000);
+        }
+
+
+        function fugir() {
+            const botaoNao = document.getElementById('nao');
+            
+            botaoNao.style.position = 'fixed';
+
+            const larguraMax = window.innerWidth - botaoNao.offsetWidth;
+            const alturaMax = window.innerHeight - botaoNao.offsetHeight;
+
+            const randomX = Math.floor(Math.random() * larguraMax);
+            const randomY = Math.floor(Math.random() * alturaMax);
+
+            botaoNao.style.left = randomX + 'px';
+            botaoNao.style.top = randomY + 'px';
+        }
+    </script>

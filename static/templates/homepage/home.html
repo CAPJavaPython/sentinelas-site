@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="hero-section" id="inicio">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-7">
+            <p class="eyebrow"><span></span> GINCANA DE ESMERALDA · RS</p>
+            <h1>OLHAR ATENTO.<br><span>VITÓRIA CERTA.</span></h1>
+            <p class="hero-copy">Uma equipe. Um propósito. Uma energia que se reconhece de longe.</p>
+            <a class="btn btn-sentinelas" href="{% url 'login' %}" rel="noopener noreferrer">
+              Entrar <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div class="col-lg-5">
+            <div class="crest-stage" aria-label="Emblema estilizado de uma coruja">
+              <div class="crest-ring"></div>
+              <div class="crest-ring crest-ring-inner"></div>
+              <div class="crest">
+                <div class="crest image" role="img" aria-label="Coruja estilizada em azul e amarelo">
+                </div>
+                <div class="crest-caption">SENTINELAS</div>
+              </div>
+              <span class="orbit-label orbit-label-top">ATENÇÃO</span>
+              <span class="orbit-label orbit-label-bottom">PRESENÇA · UNIÃO · FOCO</span>
+              <span class="spark spark-a" aria-hidden="true">✦</span>
+              <span class="spark spark-b" aria-hidden="true">✦</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-bottomline">
+          <span>ESMERALDA, RIO GRANDE DO SUL</span>
+          <span class="bottomline-rule"></span>
+          <span class="bottomline-tag">#SENTINELAS</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="identity-section section-pad" id="identidade">
+      <div class="container">
+        <div class="row align-items-end gy-3">
+          <div class="col-lg-7">
+            <p class="section-kicker">QUEM SOMOS</p>
+            <h2>Mais que uma cor.<br><span>Uma identidade.</span></h2>
+          </div>
+          <div class="col-lg-5">
+            <p class="section-description">Somos Sentinelas: atentos aos detalhes, fortes na união e prontos para transformar cada desafio em uma história para contar.</p>
+          </div>
+        </div>
+        <div class="identity-divider"></div>
+        <div class="row g-4 identity-details">
+          <div class="col-md-4">
+            <div class="detail-number">01</div>
+            <h3>Olhar atento</h3>
+            <p>Perceber o que passa despercebido. Cada detalhe importa.</p>
+          </div>
+          <div class="col-md-4">
+            <div class="detail-number">02</div>
+            <h3>União de verdade</h3>
+            <p>Uma equipe se constrói quando todo mundo faz parte.</p>
+          </div>
+          <div class="col-md-4">
+            <div class="detail-number">03</div>
+            <h3>Vontade de vencer</h3>
+            <p>Energia, dedicação e coragem para ir até o fim.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="values-strip" id="valores">
+      <div class="container values-inner">
+        <div>
+          <p class="section-kicker">NOSSO LEMA</p>
+          <h2>Olhar atento,<br><span>vitória certa.</span></h2>
+        </div>
+        <div class="values-stamp" aria-hidden="true">
+          <span>◆</span>
+          <strong></strong>
+          <small>DESDE 2026</small>
+        </div>
+      </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="hero-section" id="inicio">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-5">
+            <p class="eyebrow"><span></span> GINCANA DE ESMERALDA · RS</p>
+            <h1 class="hero-title">Bem-vindo, {{ first_name }}!</h1>
+            <p class="hero-subtitle mt-4">Acompanhe as notícias, resultados e informações da Gincana de Esmeralda.</p>
+            <a class="btn btn-sentinelas" href="{% url 'home' %}">Sair</a>
+          </div>
+          <div class="col-lg-7">
+            <div class="crest-stage" aria-label="Emblema estilizado de uma coruja">
+              <div class="crest-ring"></div>
+              <div class="crest-ring crest-ring-inner"></div>
+              <div class="crest">
+                <div class="crest image" role="img" aria-label="Coruja estilizada em azul e amarelo">
+                </div>
+                <div class="crest-caption">SENTINELAS</div>
+              </div>
+              <span class="orbit-label orbit-label-top">ATENÇÃO</span>
+              <span class="orbit-label orbit-label-bottom">PRESENÇA · UNIÃO · FOCO</span>
+              <span class="spark spark-a" aria-hidden="true">✦</span>
+              <span class="spark spark-b" aria-hidden="true">✦</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-bottomline">
+          <span>ESMERALDA, RIO GRANDE DO SUL</span>
+          <span class="bottomline-rule"></span>
+          <span class="bottomline-tag">#SENTINELAS</span>
+        </div>
+      </div>
+    </section>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const inputTelefone = document.getElementById('telefone');
+    
+    if (inputTelefone) {
+        inputTelefone.addEventListener('input', function (e) {
+            // Remove tudo o que não for dígito
+            let value = e.target.value.replace(/\D/g, '');
+            
+            // Limita o tamanho máximo a 11 dígitos (DDD + 9 dígitos)
+            if (value.length > 11) {
+                value = value.slice(0, 11);
+            }
+            
+            // Aplica a formatação automática (XX) XXXXX-XXXX
+            if (value.length > 6) {
+                value = `${value.slice(0, 2)} ${value.slice(2, 7)}-${value.slice(7)}`;
+            } else if (value.length > 2) {
+                value = `${value.slice(0, 2)} ${value.slice(2)}`;
+            } else if (value.length > 0) {
+                value = `${value}`;
+            }
+            
+            e.target.value = value;
+        });
+    }
+});
+</script>
+{% endblock %}
