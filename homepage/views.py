@@ -28,10 +28,10 @@ def login(request):
             # Se encontrou o integrante, pega o nome e avança
             if integrante:
                 first_name = integrante.first_name
-                return render(request, 'homepage/name.html', {'first_name': first_name})
             else:
                 # Se não encontrou no banco, devolve o form com erro
-                message = 'Nenhum cadastro encontrado com esses dados.'
+                first_name = 'Apoiador'
+            return render(request, 'homepage/name.html', {'first_name': first_name})
         
     else:
         form = LoginForm()
